@@ -19,8 +19,8 @@ async function fetchMetadata() {
   for (let i = 1; i <= totalSupply; i++) {
     const tokenURI = await contract.tokenURI(i);
     const response = await axios.get(tokenURI);
-    console.log(response.data, tokenURI, response.data.properties.files[2].uri);
-    metadataList.push(response.data.properties.files[2].uri);
+    console.log(response.data, tokenURI, response.data.properties.files[1].uri);
+    metadataList.push(response.data.properties.files[1].uri);
   }
 
   fs.writeFileSync("metadataList.json", JSON.stringify(metadataList, null, 2));
